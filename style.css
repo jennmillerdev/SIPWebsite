@@ -1,0 +1,208 @@
+/* ========================================================================== */ 
+/* ========================     GEN CSS     ==================================*/
+/* ==========================================================================*/ 
+
+body 
+{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #17212B;
+    color: #F4F1EA;
+}
+
+header 
+{
+    background-color: #101820;
+    padding: 25px;
+    text-align: center;
+}
+
+nav 
+{
+    margin-top: 15px;
+}
+
+nav a 
+{
+    color: #F4F1EA;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover 
+{
+    color: #55C2B3;
+}
+
+main 
+{
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1, h2 
+{
+    color: #55C2B3;
+}
+
+section 
+{
+    background-color: #243442;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+footer 
+{
+    background-color: #101820;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+
+/* ========================================================================== */ 
+/* ========================     INDEX CSS    ==================================*/
+/* ========================================================================== */ 
+#aboutMe
+{
+    background-color: #243442;
+    border-left: 5px solid #55C2B3;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+#aboutMe h2
+{
+    color: #D9B26F;
+    margin-top: 0;
+}
+
+#aboutMe p
+{
+    color: #F4F1EA;
+    line-height: 1.6;
+}
+
+
+
+
+
+/* ========================================================================== */ 
+/* ========================     BOARDS CSS    ==================================*/
+/* ========================================================================== */ 
+#boardsObj 
+{
+    max-width: 1000px;
+    margin: 4px auto;
+    padding: 20px;
+}
+
+#boardsObj > h2 
+{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.board 
+{
+    background-color: #243442;
+    border-left: 5px solid #55C2B3;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.board h3 
+{
+    color: #D9B26F;
+    margin-top: 0;
+}
+
+.board p 
+{
+    line-height: 1.6;
+    color: #F4F1EA;
+}
+
+
+
+/* ========================================================================== */ 
+/*=============================      SIP CSS      ==========================  */
+/* ========================================================================== */ 
+.sipSection
+{
+    background-color: #243442;
+    border-left: 5px solid #55C2B3;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    border-radius: 8px;
+}
+
+.sipSection h2 
+{
+    color: #D9B26F;
+    margin-top: 0;
+}
+
+
+/* ========================================================================== */ 
+/* =======================      PROJECT CSS   =============================== */
+/* ========================================================================== */ 
+.project
+{
+    background-color: #243442;
+    border-left: 5px solid #55C2B3;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.project h3
+{
+    color: #D9B26F;
+    margin-top: 0;
+}
+
+.project p
+{
+    color: #F4F1EA;
+    line-height: 1.6;
+}
+
+.project a
+{
+   display: block;
+    margin-top: 15px;
+    color: #55C2B3;
+    text-decoration: none;
+}
+
+.project a:hover
+{
+    color:  #8DE3D7;;
+    text-decoration: underline;
+}
+
+
+
+/* ========================================================================== */ 
+/* ========================     CONTACT CSS   =============================== */
+/* ========================================================================== */ 
+.contactSection a
+{
+    color: #55C2B3;
+    text-decoration: none;
+}
+
+.contactSection a:hover
+{
+    color: #8DE3D7;
+    text-decoration: underline;
+}
