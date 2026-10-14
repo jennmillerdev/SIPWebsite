@@ -3,16 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contacts</title>
+        <title>Contact</title>
 
-         <!-- link js and css files -->
+        <!-- Load the Inter font from Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- link js and css files -->
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
     </head>
 
     <body>
         <header>
-            <h1>Contacts</h1>
+            <h1>Contact</h1>
 
             <!-- Navigation links -->
             <nav>
@@ -25,19 +30,36 @@
         </header>
 
         <main>
-            <div id="contactInfo" class="contactSection">
+            <section id="contactInfo" class="contactSection">
                 <h2>Contact Information</h2>
 
-                <p>
-                If you have questions about my projects or would like to get in touch,
-                you can contact me using the information below.
-                </p>
+                <p>If you have questions about my projects or would like to get in touch you can contact me using the information below. </p>
 
                 <p>
-                    Email:
-                    <a href="mailto:jennmillerdev@gmail.com">jennmillerdev@gmail.com</a>
+                    Email:<a href="mailto:jennmillerdev@gmail.com"  aria-label="Send an email to Jennifer Miller">jennmillerdev@gmail.com</a>
                 </p>
-            </div>
+            </section>
+
+            <section id="contactForm" class="contactSection">
+                <h2>Send an Inquiry</h2>
+                <p>Use the form below to send me a message about my projects or portfolio.</p>
+
+                <form action="mailto:jennmillerdev@gmail.com"
+                    method="post"
+                    enctype="text/plain">
+
+                    <label for="visitorName">Your Name</label>
+                    <input type="text" id="visitorName" name="Name" required>
+
+                    <label for="visitorEmail">Your Email</label>
+                    <input type="email" id="visitorEmail" name="Email" required>
+
+                    <label for="visitorMessage">Your Message</label>
+                    <textarea id="visitorMessage" name="Message" rows="5" required></textarea>
+
+                    <button type="submit">Send Inquiry</button>
+                </form>
+            </section>
         </main>     
 
         <footer>

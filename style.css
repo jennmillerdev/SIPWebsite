@@ -1,65 +1,127 @@
 /* ========================================================================== */ 
 /* ========================     GEN CSS     ==================================*/
 /* ==========================================================================*/ 
+:root 
+{
+    --color-background: #17212B;
+    --color-header: #101820;
+    --color-card: #243442;
+    --color-teal: #659E98;
+    --color-teal-light: #8FB8B2;
+    --color-gold: #D9B26F;
+    --color-text: #D8D8D2;
+    --color-border: #354754;
+}
 
 body 
 {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #17212B;
-    color: #F4F1EA;
+    font-family: "Inter", sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
 }
 
+/* Header layout */
 header 
 {
-    background-color: #101820;
-    padding: 25px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background-color: var(--color-header);
+    padding: 24px max(20px, calc((100% - 1000px) / 2));
+    border-bottom: 1px solid var(--color-border);
 }
 
+/* Page title */
+header h1 
+{
+    margin: 0;
+    color: var(--color-teal);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Navigation links */
 nav 
 {
-    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 0;
+}
+
+/* Stack the header on smaller screens */
+@media (max-width: 700px) 
+{
+    header 
+    {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    nav 
+    {
+        justify-content: flex-start;
+    }
 }
 
 nav a 
 {
-    color: #F4F1EA;
+    color: var(--color-text);
     text-decoration: none;
-    margin: 0 15px;
+    padding: 9px 16px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-nav a:hover 
+nav a:hover,
+nav a:focus-visible 
 {
-    color: #55C2B3;
+    color: var(--color-background);
+    background-color: var(--color-teal);
+    outline: none;
 }
 
 main 
 {
-    max-width: 1000px;
-    margin: auto;
-    padding: 40px 20px;
+    width: min(100% - 40px, 1000px);
+    margin: 0 auto;
+    padding: 35px 0;
 }
 
 h1, h2 
 {
-    color: #55C2B3;
+    color: var(--color-teal);
+}
+
+h3 
+{
+    color: var(--color-gold);
 }
 
 section 
 {
-    background-color: #243442;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 10px;
+    background-color: var(--color-card);
+    padding: 30px;
+    margin-bottom: 28px;
+    border: 1px solid #354754;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 footer 
 {
-    background-color: #101820;
+    background-color: var(--color-header);
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+    border-top: 1px solid var(--color-border);
 }
 
 
@@ -68,26 +130,62 @@ footer
 /* ========================================================================== */ 
 #aboutMe
 {
-    background-color: #243442;
-    border-left: 5px solid #55C2B3;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 25px;
-    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-teal);
+    max-width: 100%;
+    margin: 0 0 28px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 #aboutMe h2
 {
-    color: #D9B26F;
+    color: var(--color-gold);
     margin-top: 0;
 }
 
 #aboutMe p
 {
-    color: #F4F1EA;
+    color: var(--color-text);
     line-height: 1.6;
 }
 
+/* Featured Project section */
+#featuredProject 
+{
+    box-sizing: border-box;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-gold);
+    max-width: 100%;
+    margin: 0 0 28px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+#featuredProject h2 
+{
+    color: var(--color-gold);
+    margin-top: 0;
+}
+
+#featuredProject p 
+{
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+#featuredProject a 
+{
+display: inline-block;
+margin: 10px 15px 0 0;
+color: var(--color-teal-light);
+text-decoration: none;
+}
 
 
 
@@ -99,7 +197,7 @@ footer
 {
     max-width: 1000px;
     margin: 4px auto;
-    padding: 20px;
+    padding: 0;
 }
 
 #boardsObj > h2 
@@ -108,25 +206,63 @@ footer
     margin-bottom: 30px;
 }
 
+/* Arrange the six board objectives in a two column grid */
+.boardGrid 
+{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
 .board 
 {
-    background-color: #243442;
-    border-left: 5px solid #55C2B3;
+
+    box-sizing: border-box;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-teal);
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    margin: 0;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.board:hover 
+{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .board h3 
 {
-    color: #D9B26F;
+    color: var(--color-gold);
     margin-top: 0;
 }
 
 .board p 
 {
+    color: var(--color-text);
     line-height: 1.6;
-    color: #F4F1EA;
+}
+
+/* Use two columns on medium sized screens */
+@media (max-width: 800px) 
+{
+    .boardGrid 
+    {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Stack the objectives on small screens */
+@media (max-width: 500px) 
+{
+    .boardGrid 
+    {
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -134,39 +270,146 @@ footer
 /* ========================================================================== */ 
 /*=============================      SIP CSS      ==========================  */
 /* ========================================================================== */ 
-.sipSection
+.sipSection 
 {
-    background-color: #243442;
-    border-left: 5px solid #55C2B3;
-    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-teal);
+    padding: 30px;
     margin: 20px auto;
     max-width: 1000px;
-    border-radius: 8px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .sipSection h2 
 {
-    color: #D9B26F;
+    color: var(--color-gold);
     margin-top: 0;
+}
+
+#allSIPWork > div 
+{
+    margin-top: 25px;
+}
+
+#allSIPWork h3 
+{
+    color: var(--color-gold);
+}
+
+/* Concept art gallery */
+#conceptArt 
+{
+    margin-top: 25px;
+}
+
+#conceptArt p 
+{
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+#conceptArt img 
+{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+#conceptArt img:hover 
+{
+    transform: scale(1.02);
+}
+
+/* Arrange images in a responsive grid */
+#conceptArt 
+{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#conceptArt h3,
+#conceptArt p 
+{
+    grid-column: 1 / -1;
+}
+
+#conceptArt p 
+{
+    margin-bottom: 0;
+}
+
+/* Use two columns on smaller screens */
+@media (max-width: 700px) 
+{
+    #conceptArt 
+    {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    #conceptArt img 
+    {
+        height: 200px;
+    }
+}
+
+/* Use one column on very small screens */
+@media (max-width: 420px) 
+{
+    #conceptArt 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    #conceptArt img 
+    {
+        height: auto;
+        max-height: 350px;
+        object-fit: contain;
+    }
 }
 
 
 /* ========================================================================== */ 
 /* =======================      PROJECT CSS   =============================== */
 /* ========================================================================== */ 
-.project
+.project 
 {
-    background-color: #243442;
-    border-left: 5px solid #55C2B3;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-teal);
     max-width: 900px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 8px;
+    margin: 25px auto;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project:hover 
+{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#projectSection > h2 
+{
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .project h3
 {
-    color: #D9B26F;
+    color: var(--color-gold);
     margin-top: 0;
 }
 
@@ -178,31 +421,145 @@ footer
 
 .project a
 {
-   display: block;
+    display: block;
     margin-top: 15px;
-    color: #55C2B3;
+    color: var(--color-teal-light);
     text-decoration: none;
 }
 
-.project a:hover
+.project a:hover,
+.project a:focus-visible
 {
-    color:  #8DE3D7;;
+    color: var(--color-gold);
     text-decoration: underline;
 }
 
+/* Projects page: two-column card layout */
+.projectGrid 
+{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
 
+/* Let each project card fill its grid space */
+.projectGrid .project 
+{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+/* Stack project cards on smaller screens */
+@media (max-width: 650px) 
+{
+    .projectGrid {
+        grid-template-columns: 1fr;
+    }
+}
 
 /* ========================================================================== */ 
 /* ========================     CONTACT CSS   =============================== */
 /* ========================================================================== */ 
-.contactSection a
+.contactSection a 
 {
-    color: #55C2B3;
+    color: var(--color-teal-light);
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-.contactSection a:hover
+.contactSection a:hover,
+.contactSection a:focus-visible 
 {
-    color: #8DE3D7;
+    color: var(--color-gold);
     text-decoration: underline;
+}
+
+.contactSection h2 
+{
+margin-top: 0;
+color: var(--color-gold);
+}
+
+.contactSection p 
+{
+color: var(--color-text);
+line-height: 1.6;
+}
+
+/* Contact form layout */
+#contactForm form 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+/* Form labels */
+#contactForm label 
+{
+    color: var(--color-text);
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+/* Text fields and message box */
+#contactForm input,
+#contactForm textarea 
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    font: inherit;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+}
+
+/* Highlight the field currently being used */
+#contactForm input:focus,
+#contactForm textarea:focus 
+{
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+}
+
+/* Allow visitors to resize the message box vertically */
+#contactForm textarea 
+{
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Send button */
+#contactForm button 
+{
+    align-self: flex-start;
+    margin-top: 16px;
+    padding: 12px 22px;
+    font: inherit;
+    font-weight: 600;
+    color: var(--color-background);
+    background-color: var(--color-teal);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Button hover and keyboard focus */
+#contactForm button:hover,
+#contactForm button:focus-visible 
+{
+    background-color: var(--color-teal-light);
+}
+
+#contactForm button:focus-visible 
+{
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
 }
